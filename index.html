@@ -35,12 +35,25 @@
         .texto {
             font-size: 0.9rem;
             opacity: 0.8;
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+       }
+       .imagen {
+           max-width: 250px;
+           width: 100%;
+        }
         }
     </style>
 </head>
 <body>
 
-<div class="contador">
+<div class="contenedor">
+    <img src="ImagenPucallpa.png" alt="Imagen" class="imagen">
+
+    <div class="contador">
     <div class="box">
         <div class="numero" id="dias">0</div>
         <div class="texto">Días</div>
