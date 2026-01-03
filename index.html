@@ -14,10 +14,16 @@
             height: 100vh;
         }
 
-        .contador {
+         .contador {
+             position: absolute;
+             left: 50%;
+            bottom: 40px; /* SUBE o BAJA el contador */
+            transform: translateX(-50%);
             display: flex;
             gap: 20px;
-            text-align: center;
+            background: rgba(0, 0, 0, 0.65);
+            padding: 15px 20px;
+           border-radius: 15px; 
         }
 
         .box {
@@ -31,6 +37,10 @@
             font-size: 2.5rem;
             font-weight: bold;
         }
+        .hero {
+         position: relative;
+         display: inline-block;
+        }
 
         .texto {
             font-size: 0.9rem;
@@ -41,8 +51,9 @@
             align-items: center;
             gap: 30px;
        }
-       .imagen {
-           max-width: 250px;
+         .imagen {
+           display: block;
+           max-width: 900px;
            width: 100%;
         }
         }
@@ -50,27 +61,29 @@
 </head>
 <body>
 
-<div class="contenedor">
-    <img src="ImagenPucallpa.png" alt="Imagen" class="imagen">
+<div class="hero">
+    <img src="ImagenPucallpa.png" alt="PUCALLPA INFECTION" class="imagen">
 
     <div class="contador">
-    <div class="box">
-        <div class="numero" id="dias">0</div>
-        <div class="texto">Días</div>
-    </div>
-    <div class="box">
-        <div class="numero" id="horas">0</div>
-        <div class="texto">Horas</div>
-    </div>
-    <div class="box">
-        <div class="numero" id="minutos">0</div>
-        <div class="texto">Minutos</div>
-    </div>
-    <div class="box">
-        <div class="numero" id="segundos">0</div>
-        <div class="texto">Segundos</div>
+        <div class="box">
+            <div class="numero" id="dias">0</div>
+            <div class="texto">Días</div>
+        </div>
+        <div class="box">
+            <div class="numero" id="horas">0</div>
+            <div class="texto">Horas</div>
+        </div>
+        <div class="box">
+            <div class="numero" id="minutos">0</div>
+            <div class="texto">Minutos</div>
+        </div>
+        <div class="box">
+            <div class="numero" id="segundos">0</div>
+            <div class="texto">Segundos</div>
+        </div>
     </div>
 </div>
+
 
 <script>
     const ahora = new Date();
