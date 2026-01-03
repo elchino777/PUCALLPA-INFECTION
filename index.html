@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador al 7 de Enero</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .contador {
+            display: flex;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .box {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 90px;
+        }
+
+        .numero {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .texto {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contador">
+    <div class="box">
+        <div class="numero" id="dias">0</div>
+        <div class="texto">Días</div>
+    </div>
+    <div class="box">
+        <div class="numero" id="horas">0</div>
+        <div class="texto">Horas</div>
+    </div>
+    <div class="box">
+        <div class="numero" id="minutos">0</div>
+        <div class="texto">Minutos</div>
+    </div>
+    <div class="box">
+        <div class="numero" id="segundos">0</div>
+        <div class="texto">Segundos</div>
+    </div>
+</div>
+
+<script>
+    const ahora = new Date();
+    let fechaObjetivo = new Date(ahora.getFullYear(), 0, 7, 0, 0, 0);
+
+    if (ahora > fechaObjetivo) {
+        fechaObjetivo = new Date(ahora.getFullYear() + 1, 0, 7, 0, 0, 0);
+    }
+
+    function actualizarContador() {
+        const ahora = new Date();
+        const diferencia = fechaObjetivo - ahora;
+
+        if (diferencia <= 0) {
+            document.body.innerHTML = "<h1>¡El contador terminó! 🎉</h1>";
+            return;
+        }
+
+        document.getElementById("dias").textContent =
+            Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        document.getElementById("horas").textContent =
+            Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+        document.getElementById("minutos").textContent =
+            Math.floor((diferencia / (1000 * 60)) % 60);
+        document.getElementById("segundos").textContent =
+            Math.floor((diferencia / 1000) % 60);
+    }
+
+    setInterval(actualizarContador, 1000);
+    actualizarContador();
+</script>
+
+</body>
+</html>
 
