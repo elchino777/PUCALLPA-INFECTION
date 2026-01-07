@@ -89,14 +89,31 @@
 
 
 <script>
-    const ahora = new Date();
-    let fechaObjetivo = new Date(ahora.getFullYear(), 0, 7, 19, 0, 0);
+    function obtenerFechaObjetivoHoy() {
+        const ahora = new Date();
+        let fecha = new Date(
+            ahora.getFullYear(),
+            ahora.getMonth(),
+            ahora.getDate(),
+            20, 0, 0 // 8:00 PM
+        );
 
-    if (ahora > fechaObjetivo) {
-        fechaObjetivo = new Date(ahora.getFullYear() + 1, 0, 7, 19, 0, 0);
+        // Si ya pasó las 8 PM, termina de inmediato
+        if (ahora > fecha) {
+            return null;
+        }
+
+        return fecha;
     }
 
+    let fechaObjetivo = obtenerFechaObjetivoHoy();
+
     function actualizarContador() {
+        if (!fechaObjetivo) {
+            document.body.innerHTML = "<h1>¡El contador terminó! 🎉</h1>";
+            return;
+        }
+
         const ahora = new Date();
         const diferencia = fechaObjetivo - ahora;
 
