@@ -90,10 +90,10 @@
 
 <script>
     const ahora = new Date();
-    let fechaObjetivo = new Date(ahora.getFullYear(), 0, 7, 0, 0, 0);
+    let fechaObjetivo = new Date(ahora.getFullYear(), 0, 7, 19, 0, 0);
 
     if (ahora > fechaObjetivo) {
-        fechaObjetivo = new Date(ahora.getFullYear() + 1, 0, 7, 0, 0, 0);
+        fechaObjetivo = new Date(ahora.getFullYear() + 1, 0, 7, 19, 0, 0);
     }
 
     function actualizarContador() {
@@ -118,6 +118,7 @@
     setInterval(actualizarContador, 1000);
     actualizarContador();
 </script>
+
 
 </body>
 </html>
